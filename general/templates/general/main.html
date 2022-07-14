@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block main %}
+        {% if user.is_authenticated %}
+        <div>
+            <form action="#" id="main-form">
+                <label>
+                    Пожалуйста, введите ссылку, которую нужно сократить:<br>
+                    <input >
+                </label>
+            </form>
+        </div>
+        {% else %}
+        <p>Чтобы начать сокращать ссылки,</p>
+        <p><a href="{% url 'login' %}" class="small-btn">авторизуйтесь</a> или <a href="{% url 'signup' %}" class="small-btn">зарегистрируйтесь</a></p>
+        {% endif %}
+{% endblock %}
