@@ -39,7 +39,7 @@
 h1 {
     font-weight: bolder;
     font-size: 30px;
-    padding: 4px 10px;
+    padding: 8px 16px;
     background: #5D5DFF;
     box-shadow: 0 1px 3px rgba(25, 32, 44, 0.04);
     border-radius: 4px;
@@ -158,6 +158,35 @@ main > div > div > button {
 
 #auth-form label {
     text-align: center;
+}
+
+#profile-links {
+
+}
+
+#profile-link-block {
+    display: flex
+}
+
+#profile-link-block > * {
+    margin: 0 20px;
+    flex: 1;
+}
+
+.pagination * { text-align: center; }
+.pagination a { margin: 0 10px; }
+
+.pagination .step-links, .current {
+    padding: 8px 20px;
+    background: #5D5DFF;
+    box-shadow: 0 1px 3px rgba(25, 32, 44, 0.04);
+    border-radius: 2px;
+    flex: 0 1 auto;
+    margin: 10px 0;
+}
+
+.pagination .current {
+    font-weight: bold;
 }
 
 /* Footer */

@@ -1,5 +1,35 @@
-{% extends "layout.html" %}
+{% extends "layout.html" %}{% load short_url %}
 {% block h1 %}Профиль{% endblock %}
 {% block main %}
+        <div id="profile-links">
+            <div id="profile-link-block">
+                <div id="profile-link-block-long">Длинная ссылка</div>
+                <div id="profile-link-block-short">Короткая ссылка</div>
+            </div>
+            {% for link in page_obj %}
+            <div id="profile-link-block">
+                <div id="profile-link-block-long"><a href="{{ link.long_url }}">{{ link.long_url }}</a></div>
+                <div id="profile-link-block-short"><a href="{% short_url link %}">{% short_url link %}</a></div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="pagination">
+            {% if page_obj.has_previous or page_obj.has_next %}
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; к первой</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">предыдущая</a>
+                {% endif %}
 
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">следующая</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">к последней &raquo;</a>
+                {% endif %}
+                <br>
+            </span>
+            {% endif %}
+            <span class="current">
+                Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}.
+            </span>
+        </div>
 {% endblock %}
