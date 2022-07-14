@@ -43,6 +43,40 @@ h1 {
     background: #5D5DFF;
     box-shadow: 0 1px 3px rgba(25, 32, 44, 0.04);
     border-radius: 4px;
+    margin-bottom: 20%;
+}
+
+input::placeholder {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #ABABFF;
+}
+
+input {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #E2E1FF;
+
+    background: #4B4ACF;
+    border: 1px solid #8D8DFF;
+    box-sizing: border-box;
+    border-radius: 2px;
+
+    padding: 12px 16px;
+    width: 320px;
+}
+
+button {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #5D5DFF;
+
+    padding: 12px 32px;
+    background: #F4F4FF;
+    border-radius: 2px;
 }
 
 html {
@@ -96,15 +130,24 @@ main {
     flex: 1 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
-#main-form {
+main > div {
     display: flex;
+    flex: 1 0 auto;
     flex-direction: column;
-    justify-content: center;
-    align-content: center;
+}
+
+main > div > div {
+    margin: 10px 0;
+    display: flex;
+}
+
+main > div > div > button {
+    flex: 1 0 auto;
+    margin-left: 10px;
 }
 
 /* Footer */
