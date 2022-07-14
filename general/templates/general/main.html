@@ -3,11 +3,33 @@
 {% block main %}
         {% if user.is_authenticated %}
         <div>
-            <div><input type="url" id="long-url"><button id="short-btn">Сократить</button></div>
+            <div><input type="url" id="long-url" required><button id="short-btn">Сократить</button></div>
             <div><input type="url" id="short-url" disabled><button id="copy-btn">Скопировать</button></div>
         </div>
         {% else %}
         <p>Чтобы начать сокращать ссылки,</p>
         <p><a href="{% url 'login' %}" class="small-btn">авторизуйтесь</a> или <a href="{% url 'signup' %}" class="small-btn">зарегистрируйтесь</a></p>
         {% endif %}
+{% endblock %}
+{% block jsscript %}
+    <script>
+        $("button#short-btn").click((e) => {
+           e.preventDefault();
+           let long_url = $("input#long-url").val();
+           $.ajax({
+            url: "{% url 'main-page' %}",
+            method: 'POST',
+            data: {long_url: long_url},
+            headers: {"X-CSRFToken": "{{ csrf_token }}"},
+            success: (response) => {
+                $("input#short-url").val(response);
+            }
+           });
+        });
+        $("button#copy-btn").click((e) => {
+            e.preventDefault();
+            let text = $("input#short-url").val();
+            navigator.clipboard.writeText(text);
+        });
+    </script>
 {% endblock %}
