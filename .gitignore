@@ -1,5 +1,5 @@
 venv/
 .idea/
 __pycache__
-/auth/migrations/
+/authentication/migrations/
 /general/migrations/
