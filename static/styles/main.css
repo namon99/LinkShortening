@@ -21,6 +21,13 @@
     border-radius: 2px;
 }
 
+.btn-red {
+    padding: 8px 20px;
+    background: #ff5d5d;
+    box-shadow: 0 1px 3px rgba(25, 32, 44, 0.04);
+    border-radius: 2px;
+}
+
 .small-btn {
     padding: 4px 10px;
     background: #5D5DFF;
