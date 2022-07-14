@@ -150,6 +150,16 @@ main > div > div > button {
     margin-left: 10px;
 }
 
+#auth-form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#auth-form label {
+    text-align: center;
+}
+
 /* Footer */
 
 footer {
