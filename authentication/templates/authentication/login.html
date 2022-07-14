@@ -1,8 +1,10 @@
 {% extends "layout.html" %}
+{% block title %}Авторизация{% endblock %}
+{% block h1 %}Вход в аккаунт{% endblock %}
 {% block main %}
-        <form action="#">
-            <label>Имя пользователя<br>{{ form.username }}</label><br>
-            <label>Пароль<br>{{ form.password }}</label><br>
+        <form action="{% url 'login' %}" method="post">
+            <label>{{ form.username.label }}<br>{{ form.username }}</label><br>
+            <label>{{ form.password.label }}<br>{{ form.password }}</label><br>
             <input type="submit" value="Войти в аккаунт">
         </form>
 {% endblock %}
