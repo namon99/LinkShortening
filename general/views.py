@@ -14,7 +14,7 @@ class MainPageView(TemplateView):
         long_url = request.POST['long_url']
         try:
             instance = ShortenedLink.objects.get(long_url=long_url)
-            return HttpResponse(f"{request.scheme}://{request.get_host()}/{instance.short_key}")
+            return HttpResponse(instance.get_short_url(request))
         except ShortenedLink.DoesNotExist:
             while True:
                 short_key = ''.join([random.choice(string.ascii_letters + string.digits) for i in range(6)])
@@ -23,4 +23,4 @@ class MainPageView(TemplateView):
                 except IntegrityError:
                     continue
                 else:
-                    return HttpResponse(f"{request.scheme}://{request.get_host()}/{instance.short_key}")
+                    return HttpResponse(instance.get_short_url(request))
