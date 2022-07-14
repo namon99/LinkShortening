@@ -10,3 +10,6 @@ class ShortenedLink(models.Model):
     class Meta:
         verbose_name = 'Сокращённая ссылка'
         verbose_name_plural = 'Сокращённые ссылки'
+
+    def get_short_url(self, request):
+        return f"{request.scheme}://{request.get_host()}/{self.short_key}/"
