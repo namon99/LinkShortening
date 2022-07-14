@@ -3,6 +3,7 @@
 {% block h1 %}Создание аккаунта{% endblock %}
 {% block main %}
         <form action="{% url 'signup' %}" method="post">
+            {% csrf_token %}
             <label>{{ form.username.label }}<br>{{ form.username }}</label><br>
             <label>{{ form.password1.label }}<br>{{ form.password1 }}</label><br>
             <label>{{ form.password2.label }}<br>{{ form.password2 }}</label><br>
