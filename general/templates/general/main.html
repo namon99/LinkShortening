@@ -2,12 +2,8 @@
 {% block main %}
         {% if user.is_authenticated %}
         <div>
-            <form action="#" id="main-form">
-                <label>
-                    Пожалуйста, введите ссылку, которую нужно сократить:<br>
-                    <input >
-                </label>
-            </form>
+            <div><input type="url" id="long-url"><button id="short-btn">Сократить</button></div>
+            <div><input type="url" id="short-url" disabled><button id="copy-btn">Скопировать</button></div>
         </div>
         {% else %}
         <p>Чтобы начать сокращать ссылки,</p>
