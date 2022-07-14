@@ -36,6 +36,15 @@
     font-weight: bold;
 }
 
+h1 {
+    font-weight: bolder;
+    font-size: 30px;
+    padding: 4px 10px;
+    background: #5D5DFF;
+    box-shadow: 0 1px 3px rgba(25, 32, 44, 0.04);
+    border-radius: 4px;
+}
+
 html {
 	box-sizing: border-box;
     height: 100%;
