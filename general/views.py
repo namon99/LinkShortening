@@ -1,8 +1,8 @@
 import random
 import string
 from django.db import IntegrityError
-from django.http import HttpResponse
-from django.views.generic import TemplateView
+from django.http import HttpResponse, HttpResponseRedirect, Http404
+from django.views.generic import TemplateView, View
 
 from .models import ShortenedLink
 
@@ -24,3 +24,16 @@ class MainPageView(TemplateView):
                     continue
                 else:
                     return HttpResponse(instance.get_short_url(request))
+
+
+class RedirectFromShortToLongURLView(View):
+
+    def get(self, request, *args, **kwargs):
+        short_key = self.request.path.strip('/')
+        try:
+            instance = ShortenedLink.objects.get(short_key=short_key)
+        except ShortenedLink.DoesNotExist:
+            return Http404()
+        else:
+            return HttpResponseRedirect(instance.long_url)
+
